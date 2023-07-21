@@ -9,9 +9,15 @@ const SignUpForm = () => {
         setUserData({...userData, [target.name] : target.value})
     }
 
+    const submitHandler = (e) => {
+        // console.log("submit");
+        //to prevent loading, but the main reson is to prevent seeing username and password in the link
+        e.preventDefault()
+    }
+
     return(
         <div>
-            <form>
+            <form onSubmit={submitHandler}>
                 <div className="formControl">
                     <label>Name</label>
                     <input type="text" name="name" value={userData.name} onChange={changeHandler} />
